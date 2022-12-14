@@ -9,7 +9,6 @@ def get_item_in_common(string_a, string_b):
     )
     return item_in_common
 
-
 def solve_part_1(backpacks):
     sum_of_priorities = 0
 
@@ -19,11 +18,9 @@ def solve_part_1(backpacks):
         compartment_b = backpack[half_index:]
 
         item_in_common = get_item_in_common(compartment_a, compartment_b)
-
         sum_of_priorities += ascii_value_to_priority(item_in_common)
 
     return sum_of_priorities
-
 
 def solve_part_2(backpacks):
     groups = []
@@ -36,8 +33,8 @@ def solve_part_2(backpacks):
 
     sum_of_priorities = 0
     for group in groups:
-        common_items   = get_item_in_common(group[0], group[1])
-        item_in_common = get_item_in_common(common_items, group[2])
+        item_in_common = get_item_in_common(group[0], group[1])
+        item_in_common = get_item_in_common(item_in_common, group[2])
         sum_of_priorities += ascii_value_to_priority(item_in_common)
 
     return sum_of_priorities
